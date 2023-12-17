@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main menu</title>
+</head>
+<body>
+{% if session['user_id'] %}
+<h4>{{session['user_id']}}</h4>
+<a href = "{{url_for('bp_auto.ex')}}">Выход</a>
+{% else %}
+<a href = "{{url_for('bp_auto.auto')}}">Войти</a>
+{% endif %}
+{% if session['user_group'] == 'admin' %}
+<a href = "{{url_for('bp_update.admin_menu')}}">Панель администрации</a>
+{% endif %}
+
+<center>
+    <h2>Главное меню ИС</h2>
+    <a href = "{{url_for('bp_schedule.get_schedule')}}">Расписание</a>
+
+</center>
+
+<center>
+    <h2>Фильмы</h2>
+        <p>
+            <table border = 1>
+                <tr class = "tab_title">
+                    <td>Название</td>
+                </tr>
+                {% for film in films %}
+                    <tr>
+                        <td><a href="http://127.0.0.1:5001/film/{{film['f_id']}}">{{film['name']}}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </p>
+</center>
+
+</body>
+</html>

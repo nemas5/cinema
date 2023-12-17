@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic_page</title>
+    <link href = "{{url_for('static', filename = 'sem1.css')}}"
+          rel = "stylesheet" type = "text/css">
+</head>
+
+<body>
+<a href = "{{url_for('bp_update.admin_menu')}}">Назад</a>
+<center>
+    <h2>Введите даты для просмотра отчётности</h2>
+    <form action = "" method = "POST">
+        <label for = "start">Год</label>
+        <input type = "text" name = "start" id = "start">
+        <label for = "end">Месяц</label>
+        <input type = "text" name = "end" id = "end">
+        <br><br><br>
+        <input type = "submit" class = "button" value = "Отправить">
+        <input type = "reset" class = "button" value = "Очистить">
+    </form>
+
+</center>
+    <center>
+        <h2>Отчёт за {{start}} - {{end}}</h2>
+        <p>
+            <table border = 1>
+                <tr class = "tab_title">
+                    <td>ses_id</td>
+                    <td>Количество билетов</td>
+                    <td>Выручка</td>
+                </tr>
+                {% for report in reports %}
+                    <tr>
+                        <td>{{report['ses_id']}}</td>
+                        <td>{{report['count']}}</td>
+                        <td>{{report['sell_sum']}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </p>
+    </center>
+</body>
+</html>

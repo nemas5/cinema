@@ -1,0 +1,1 @@
+INSERT INTO `cinema`.`check` (`u_id`, `dt`) VALUES ('$u_id', '$dt')

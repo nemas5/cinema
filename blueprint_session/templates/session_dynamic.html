@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic_page</title>
+    <link href = "{{url_for('static', filename = 'sem1.css')}}"
+          rel = "stylesheet" type = "text/css">
+</head>
+{% if session['user_id'] %}
+<h4>{{session['user_id']}}</h4>
+<a href = "{{url_for('bp_auto.ex')}}">Выход</a>
+{% else %}
+<a href = "{{url_for('bp_auto.auto')}}">Войти</a>
+{% endif %}
+<body>
+<a href = "http://127.0.0.1:5001/">К фильмам</a>
+    <center>
+        <h2>Сеанс</h2>
+        <h3><a href="http://127.0.0.1:5001/film/{{ses['f_id']}}">{{ses['name']}}</a></h3>
+        <h3>{{ses['dt']}}</h3>
+        <p>
+            <table border = 1>
+                <tr class = "tab_title">
+                    <td>Ряд</td>
+                    <td>Место</td>
+                    <td>Цена</td>
+                    <td>Приобретение</td>
+                </tr>
+                {% for ticket in tickets %}
+                    <tr>
+
+                        <td>{{ticket['row']}}</td>
+                        <td>{{ticket['seat']}}</td>
+                        <td>{{ticket['price']}}</td>
+                        {% if ticket['is_sold'] %}
+                            <td>-</td>
+                        {% else %}
+                            {% if ticket['t_id'] in basket %}
+                            <td><a href="{{url_for('bp_session.remove_from_basket', ses_id=ses['ses_id'], t_id=ticket['t_id'])}}">
+                                (+)</a></td>
+                            {% else %}
+                            <td><a href="{{url_for('bp_session.add_to_basket', ses_id=ses['ses_id'], t_id=ticket['t_id'])}}">
+                                +</a></td>
+                            {% endif %}
+                        {% endif %}
+
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </p>
+        <br>
+        <a href="{{url_for('bp_session.order', ses_id=ses['ses_id'])}}">Купить билеты</a>
+        <br>
+        <h4>{{mes}}</h4>
+    </center>
+</body>
+</html>

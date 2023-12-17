@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ввод параметров</title>
+    <link href = "{{url_for('static', filename = 'sem2.css')}}"
+          rel = "stylesheet" type = "text/css">
+</head>
+<body>
+<a href = "http://127.0.0.1:5001/">Главное меню</a>
+<center>
+    <h2>Введите даты для просмотра отчётности</h2>
+    <form action = "" method = "POST">
+        <label for = "start">Год</label>
+        <input type = "text" name = "start" id = "start">
+        <label for = "end">Месяц</label>
+        <input type = "text" name = "end" id = "end">
+        <br><br><br>
+        <input type = "submit" class = "button" value = "Отправить">
+        <input type = "reset" class = "button" value = "Очистить">
+    </form>
+
+</center>
+
+</body>
+</html>

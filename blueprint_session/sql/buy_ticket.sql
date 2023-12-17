@@ -1,0 +1,1 @@
+UPDATE `cinema`.`ticket` SET `is_sold` = '1' WHERE (`t_id` = '$t_id');

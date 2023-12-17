@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic_page</title>
+    <link href = "{{url_for('static', filename = 'sem1.css')}}"
+          rel = "stylesheet" type = "text/css">
+</head>
+{% if session['user_id'] %}
+<h4>{{session['user_id']}}</h4>
+<a href = "{{url_for('bp_auto.ex')}}">Выход</a>
+{% else %}
+<a href = "{{url_for('bp_auto.auto')}}">Войти</a>
+{% endif %}
+<body>
+<a href = "http://127.0.0.1:5001/">К фильмам</a>
+    <center>
+        <h2>Расписание</h2>
+        <p>
+            <table border = 1>
+                <tr class = "tab_title">
+                    <td>Название</td>
+                    <td>Год</td>
+                    <td>Время</td>
+                </tr>
+                {% for ses in sessions %}
+                    <tr>
+                        <td><a href="http://127.0.0.1:5001/session/{{ses['ses_id']}}">{{ses['name']}}</a></td>
+                        <td>{{ses['year']}}</td>
+                        <td>{{ses['dt']}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </p>
+    </center>
+</body>
+</html>

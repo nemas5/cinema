@@ -1,0 +1,1 @@
+select * from $user_table where `password` = '$password' and u_id = '$login'

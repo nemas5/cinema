@@ -1,0 +1,1 @@
+INSERT INTO external_users (u_id, `name`, mail, `password`) VALUES ('$login', '$nm', '$sm', '$password');

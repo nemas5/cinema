@@ -1,0 +1,1 @@
+select * from report where `start` >= '$start' and `end` <= '$end'

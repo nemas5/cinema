@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main menu</title>
+</head>
+<body>
+{% if session['user_id'] %}
+<h4>{{session['user_id']}}</h4>
+<a href = "{{url_for('bp_auto.ex')}}">Выход</a>
+{% else %}
+<a href = "{{url_for('bp_auto.auto')}}">Войти</a>
+{% endif %}
+<a href = "http://127.0.0.1:5001">Главное меню</a>
+
+<center>
+    <a href = "{{url_for('bp_report.report_menu')}}">Меню отчётов</a>
+    <br>
+    <a href = "{{url_for('bp_update.add_film')}}">Добавить фильм</a>
+    <br>
+    <a href = "{{url_for('bp_update.add_ses')}}">Добавить сеанс</a>
+    <br>
+    <a href = "{{url_for('bp_query.query_menu')}}">Меню запросов</a>
+</center>
+
+</body>
+</html>

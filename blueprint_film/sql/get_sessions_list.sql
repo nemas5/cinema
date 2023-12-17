@@ -1,0 +1,1 @@
+select ses_id, dt from film join `session` on `film`.f_id=`session`.f_id where `film`.f_id="$f_id"

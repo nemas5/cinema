@@ -1,0 +1,4 @@
+{
+  "external": [],
+  "admin": ["bp_report", "bp_update", "bp_query"]
+}

@@ -1,0 +1,1 @@
+select `session`.f_id, dt, `name`, ses_id, year from `film` join `session` using(f_id)

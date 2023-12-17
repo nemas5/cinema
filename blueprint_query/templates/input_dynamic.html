@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic_page</title>
+    <link href = "{{url_for('static', filename = 'sem1.css')}}"
+          rel = "stylesheet" type = "text/css">
+</head>
+{% if session['user_id'] %}
+<h4>{{session['user_id']}}</h4>
+<a href = "{{url_for('bp_auto.ex')}}">Выход</a>
+{% else %}
+<a href = "{{url_for('bp_auto.auto')}}">Войти</a>
+{% endif %}
+<body>
+<a href = "http://127.0.0.1:5001/">Главное меню</a>
+<center>
+    <h2>{{config['query_name']}}</h2>
+    <p>
+    <form action = "" method = "POST">
+        {% for i in range(config['input_param']|length) %}
+        <label for = "{{config['input_id'][i]}}">{{config['input_param'][i]}}</label>
+        <input type = "text" name = "{{config['input_id'][i]}}" id = "{{config['input_id'][i]}}">
+        {% endfor %}
+        <br><br><br>
+        <input type = "submit" class = "button" value = "Отправить">
+        <input type = "reset" class = "button" value = "Очистить">
+    </form>
+</center>
+
+</body>
+</html>
+
+
+

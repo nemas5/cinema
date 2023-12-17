@@ -1,0 +1,83 @@
+{
+  "query_1": {
+    "input_param": [
+    ],
+    "output_param": [
+      "Номер",
+      "Название",
+      "Количество мест"
+    ],
+    "output_id": [
+      "h_id",
+      "name",
+      "seats"
+    ],
+    "query_name": "Зал с наибольшим количеством мест",
+    "query_file": "complex_3.sql"
+  },
+  "query_2": {
+    "input_param": [
+
+    ],
+    "output_param": [
+      "Номер",
+      "Название",
+      "Количество мест"
+    ],
+    "output_id": [
+      "h_id",
+      "name",
+      "seats"
+    ],
+    "query_name": "Залы, в которых не проходили сеансы",
+    "query_file": "complex_4.sql"
+  },
+  "query_3": {
+    "input_param": [
+      "Год"
+    ],
+    "input_id": [
+      "dt"
+    ],
+    "output_param": [
+      "Сеанс",
+      "Коэффициент",
+      "Дата",
+      "Фильм",
+      "Зал"
+    ],
+    "output_id": [
+      "ses_id",
+      "coef",
+      "dt",
+      "f_id",
+      "h_id"
+    ],
+    "query_name": "Сеансы без билетов",
+    "query_file": "complex_5.sql"
+  },
+  "query_4": {
+    "input_param": [
+      "Год"
+    ],
+    "input_id": [
+      "dt"
+    ],
+    "output_param": [
+      "Сеанс",
+      "Коэффициент",
+      "Дата",
+      "Фильм",
+      "Зал"
+    ],
+    "output_id": [
+      "ses_id",
+      "coef",
+      "dt",
+      "f_id",
+      "h_id"
+    ],
+    "query_name": "Сеанс с большим количеством продаж",
+    "query_file": "complex_6.sql"
+  }
+}

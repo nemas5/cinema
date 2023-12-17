@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report menu</title>
+</head>
+<body>
+<a href = "{{url_for('bp_update.admin_menu')}}">Назад</a>
+<center>
+    {% for report in reports %}
+    <a href = "http://127.0.0.1:5001/report/{{report}}">{{reports[report]}}</a>
+    {% endfor %}
+</center>
+
+</body>
+</html>
